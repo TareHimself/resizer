@@ -1,1 +1,1 @@
-~/thumbnail-generator/node_modules/node/bin/node ~/thumbnail-generator/node_modules/npm/bin/npx-cli.js $@
+~/resizer/node_modules/node/bin/node ~/resizer/node_modules/npm/bin/npx-cli.js $@
