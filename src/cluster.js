@@ -8,14 +8,13 @@ const { getThumb } = require('./api');
 app.use(cors());
 
 app.get('/', async (req, res) => {
-  res.send("HI");
+  res.send("Yo");
 });
-
-app.get('/thumb/:size/*', async (req, res) => {
+app.get(/([0-9]+)x([0-9]+)\/(https:|http:)(\/\/|\/)(.*)/, async (req, res) => {
+  console.log(req.params)
   try {
-    const size = req.params.size;
-    const url = req.params[0];
-
+    const size = { width: parseInt(req.params[0]), height: parseInt(req.params[1]), toString: () => { return req.params[0] + 'x' + req.params[1] } };
+    const url = req.params[2] + '//' + req.params[4];
     res.contentType('image/png');
     res.send(await getThumb(size, url));
   } catch (error) {
