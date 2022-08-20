@@ -4,17 +4,22 @@ const sharp = require('sharp');
 const { storeImage, getStoredImage } = require('./sqlite');
 
 async function generateThumb(size, url) {
-	const imageResponse = await axios.get(url, { responseType: 'arraybuffer' });
-	const buffer = Buffer.from(imageResponse.data);
-	const result = await sharp(buffer)
-		.resize({
-			width: size.width,
-			height: size.height,
-		})
-		.png()
-		.toBuffer()
-	storeImage(url, result);
-	return result;
+	try {
+		const imageResponse = await axios.get(url, { responseType: 'arraybuffer' });
+		const buffer = Buffer.from(imageResponse.data);
+		const result = await sharp(buffer)
+			.resize({
+				width: size.width,
+				height: size.height,
+			})
+			.png()
+			.toBuffer()
+		storeImage(url, result);
+		return result;
+	} catch (error) {
+		null
+	}
+
 }
 
 async function getThumb(size, url) {
