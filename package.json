@@ -20,6 +20,8 @@
     "sharp": "^0.30.7"
   },
   "devDependencies": {
-    "prettier": "2.7.1"
+    "prettier": "2.7.1",
+    "node": "^16.10.0",
+    "npm": "^8.4.1"
   }
 }
