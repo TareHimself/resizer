@@ -1,0 +1,25 @@
+{
+  "name": "resizer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "experiment": "node ./experiment.js",
+    "pretty": "npx prettier --write ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "better-sqlite3": "^7.6.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "pretty": "^2.0.0",
+    "sharp": "^0.30.7"
+  },
+  "devDependencies": {
+    "prettier": "2.7.1"
+  }
+}
