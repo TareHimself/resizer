@@ -3,8 +3,10 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const app = express();
+const cors = require('cors');
 const { getThumb } = require('./api');
 
+app.use(cors());
 
 app.get('/', async (req, res) => {
   res.send("HI");
@@ -24,6 +26,6 @@ app.get('/thumb/:size/*', async (req, res) => {
 
 });
 
-app.listen(3006, async () => {
-  console.log(`http://localhost:${3006}/`);
+app.listen(process.argv.includes('debug') ? 3006 : 8080, async () => {
+  console.log(`http://localhost:${process.argv.includes('debug') ? 3006 : 8080}/`);
 });
