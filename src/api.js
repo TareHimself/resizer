@@ -14,7 +14,7 @@ async function generateThumb(size, url) {
 			})
 			.png()
 			.toBuffer()
-		storeImage(url, result);
+		storeImage(size.toString() + '|' + url, result);
 		return result;
 	} catch (error) {
 		null
