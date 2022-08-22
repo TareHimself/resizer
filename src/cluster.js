@@ -4,12 +4,13 @@ const fs = require("fs");
 const path = require("path");
 const app = express();
 const { getThumb } = require('./api');
-
+const { getStoredImages } = require('./sqlite');
 app.use(cors());
 
 app.get('/', async (req, res) => {
-  res.send("Yo");
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
+
 app.get(/([0-9]+)x([0-9]+)\/(https:|http:)(\/\/|\/)(.*)/, async (req, res) => {
   try {
     const size = { width: parseInt(req.params[0]), height: parseInt(req.params[1]), toString: () => { return req.params[0] + 'x' + req.params[1] } };

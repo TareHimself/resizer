@@ -14,6 +14,16 @@ function getStoredImage(url) {
   return result[0]?.data;
 }
 
+function getStoredImages() {
+  const result = db
+    .prepare(
+      `SELECT id FROM images`
+    )
+    .all();
+
+  return result;
+}
+
 function storeImage(url, buffer) {
   const result = db
     .prepare(
@@ -26,4 +36,5 @@ function storeImage(url, buffer) {
 module.exports = {
   getStoredImage,
   storeImage,
+  getStoredImages
 };
