@@ -1,7 +1,7 @@
 import Database from 'better-sqlite3';
 import cluster from 'cluster';
 import { ICachedImage } from './types';
-const cache = Database('cache.db', {
+const cache = Database('./cache/cache.db', {
 	//fileMustExist: true,
 });
 
@@ -16,7 +16,7 @@ if (cluster.isPrimary) {
 			`
     CREATE TABLE IF NOT EXISTS images(
         id TEXT PRIMARY KEY,
-        data BLOB NOT NULL,
+        data BLOB NOT NULL
     ) WITHOUT ROWID;
     `
 		)

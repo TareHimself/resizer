@@ -40,7 +40,7 @@ const app = express();
 app.use(cors());
 
 app.get('/', async (req, res) => {
-	res.sendFile(path.join(__dirname, 'index.html'));
+	res.sendFile(path.join(__dirname, '../', 'index.html'));
 });
 
 app.get(/([0-9]+)x([0-9]+)\/(https:|http:)(\/\/|\/)(.*)/, async (req, res) => {
